@@ -4,6 +4,8 @@ class Manager(Employee):
     def __init__(self, name, salary, title, manager=None):
         super().__init__(name, salary, title, manager)
         self._employees=[]
+
+    
     def addEmployee(self, employee):
         self._employees.append(employee)
         return
@@ -18,3 +20,10 @@ class Manager(Employee):
                 sum+=employee._salary
     
         return sum
+    
+
+
+manager_emily=Manager("emily","100","manager1")
+print(manager_emily._employees)
+employee_linda=Employee("linda","50","employee1",manager_emily)
+print(manager_emily._employees[0].__dict__) # can use __dict__ to replace the def __repr__ instance in the Employee class
